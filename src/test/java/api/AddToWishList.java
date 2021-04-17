@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
+import static template.ReportTemplate.filters;
 
 public class AddToWishList {
 
@@ -15,6 +16,7 @@ public class AddToWishList {
                 .contentType(ContentType.URLENC)
                 .cookies(cookies)
                 .body("addtocart_43.EnteredQuantity=1")
+                .filter(filters().customTemplates())
                 .when()
                 .post("/addproducttocart/details/43/2")
                 .then()

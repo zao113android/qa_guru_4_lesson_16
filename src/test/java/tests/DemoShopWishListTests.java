@@ -19,6 +19,8 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static template.ReportTemplate.filters;
+
 
 public class DemoShopWishListTests extends TestBase {
 
@@ -27,6 +29,7 @@ public class DemoShopWishListTests extends TestBase {
         Response response = given()
                 .contentType(ContentType.URLENC)
                 .body("addtocart_43.EnteredQuantity=1")
+                .filter(filters().customTemplates())
                 .when()
                 .post("/addproducttocart/details/43/2")
                 .then()
