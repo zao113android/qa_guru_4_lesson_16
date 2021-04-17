@@ -20,4 +20,13 @@ public class TestBase {
         RestAssured.baseURI = "http://demowebshop.tricentis.com";
         Configuration.baseUrl = "http://demowebshop.tricentis.com";
     }
+
+    @AfterEach
+    public void addAttachments(){
+        attachScreenshot("Last screenshot");
+        attachPageSource();
+        attachAsText("Browser console logs", getConsoleLogs());
+
+        closeWebDriver();
+    }
 }
