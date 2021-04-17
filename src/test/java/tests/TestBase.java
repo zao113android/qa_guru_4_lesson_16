@@ -44,6 +44,6 @@ public class TestBase {
         attachAsText("Browser console logs", getConsoleLogs());
         if(config.getVideoStorage() != null)
             attachVideo();
-        closeWebDriver();
+       // closeWebDriver();
     }
 }
