@@ -37,4 +37,17 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+    System.setProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+}
+
+tasks.withType(Test) {
+    systemProperties += System.properties
+    System.setProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+}
+
+task positive_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'positive'
+    }
 }
