@@ -29,6 +29,9 @@ dependencies {
             "io.qameta.allure:allure-java-commons:$allureVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+
+    implementation "org.aeonbits.owner:owner:1.0.12"
+
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
