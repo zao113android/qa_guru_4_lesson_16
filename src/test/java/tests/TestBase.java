@@ -16,17 +16,8 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+      //  Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
         RestAssured.baseURI = "http://demowebshop.tricentis.com";
         Configuration.baseUrl = "http://demowebshop.tricentis.com";
     }
-
-    @AfterEach
-    public void afterEach() {
-        String sessionId = getSessionId();
-        attachScreenshot("Last screenshot");
-        attachPageSource();
-        closeWebDriver();
-    }
-
 }
